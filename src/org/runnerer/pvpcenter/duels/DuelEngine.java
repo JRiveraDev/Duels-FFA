@@ -130,6 +130,17 @@ public class DuelEngine implements Listener
                 Stats.addDuelsKills(winner.getUniqueId().toString(), 1);
                 Stats.addDuelsWins(winner.getUniqueId().toString(), 1);
 
+                if (((DuelDatabase.duelRequest.containsKey(winner) || DuelDatabase.duelRequest.containsValue(winner)) && ((DuelDatabase.duelRequest.containsKey(loser) || DuelDatabase.duelRequest.containsValue(loser)))
+                {
+                    try
+                    {
+                        DuelDatabase.duelRequest.remove(winner);
+                        DuelDatabase.duelRequest.remove(loser);
+                    } catch (Exception e)
+                    {
+                    
+                    }
+                }
                 if (DuelDatabase.isAbleToStart())
                 {
                     startDuel(DuelDatabase.duel1v1.get(1), DuelDatabase.duel1v1.get(2), DuelType.DUEL1_1V1);
